@@ -5,7 +5,7 @@ Created on Mon Jan  20 02:07:13 2019
 
 @author: prabhakar
 """
-# import neccessary argumnets 
+# import necessary argumnets 
 import gi
 import cv2
 import argparse
