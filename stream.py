@@ -64,7 +64,6 @@ class SensorFactory(GstRtspServer.RTSPMediaFactory):
 class GstServer(GstRtspServer.RTSPServer):
     def __init__(self, **properties):
         super(GstServer, self).__init__(**properties)
-        print("I'm here")
         self.factory = SensorFactory()
         self.factory.set_shared(True)
         self.get_mount_points().add_factory(opt.stream_uri, self.factory)
