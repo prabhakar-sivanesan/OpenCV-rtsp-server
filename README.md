@@ -15,7 +15,7 @@ This implementation has been developed and tested on Ubuntu 16.04 and 18.04. So 
 - Opencv 3.x or above ( pip install opencv-python )
 
 ### Usage
->>> Run stream.py with required arguments 
+> Run stream.py with required arguments 
 ##### Sample 
     python stream.py --device_id 0 --fps 30 --image_width 640 --image_height 480 --stream_uri /video_stream
 
