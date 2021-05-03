@@ -21,9 +21,9 @@ This implementation has been developed and tested on Ubuntu 16.04 and 18.04. So 
     
 ### Visualization
 
-You can view the video feed on rtsp://server-ip-address:8554/stream_uri
+You can view the video feed on `rtsp://server-ip-address:8554/stream_uri`
 
-e.g: rtsp://192.168.1.12:8554/video_stream
+e.g: `rtsp://192.168.1.12:8554/video_stream`
 
-You can either use any video player which supports rtsp streaming like VLC player or you can use the open-rtsp.py script to view the video feed.
+You can either use any video player which supports rtsp streaming like VLC player or you can use the `open-rtsp.py` script to view the video feed.
 
