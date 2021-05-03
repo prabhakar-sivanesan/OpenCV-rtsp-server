@@ -15,7 +15,15 @@ This implementation has been developed and tested on Ubuntu 16.04 and 18.04. So 
 - Opencv 3.x or above ( pip install opencv-python )
 
 ### Usage
-> Run stream.py with required arguments 
+> Run stream.py with required arguments to start the rtsp server
 ##### Sample 
     python stream.py --device_id 0 --fps 30 --image_width 640 --image_height 480 --stream_uri /video_stream
+    
+### Visualization
+
+You can view the video feed on rtsp://server-ip-address:8554/stream_uri
+
+e.g: rtsp://192.168.1.12:8554/video_stream
+
+You can either use any video player which supports rtsp streaming like VLC player or you can use the open-rtsp.py script to view the video feed.
 
