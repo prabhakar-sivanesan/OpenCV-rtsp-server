@@ -32,10 +32,14 @@ class SensorFactory(GstRtspServer.RTSPMediaFactory):
                              .format(opt.image_width, opt.image_height, self.fps)
     # method to capture the video feed from the camera and push it to the
     # streaming buffer.
-    def on_need_data(self, src, lenght):
+    def on_need_data(self, src, length):
         if self.cap.isOpened():
             ret, frame = self.cap.read()
             if ret:
+                # It is better to change the resolution of the camera 
+                # instead of changing the image shape as it affects the image quality.
+                frame = cv2.resize(frame, (opt.image_width, opt.image_height), \
+                    interpolation = cv2.INTER_LINEAR)
                 data = frame.tostring()
                 buf = Gst.Buffer.new_allocate(None, len(data), None)
                 buf.fill(0, data)
