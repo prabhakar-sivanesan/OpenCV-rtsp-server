@@ -71,7 +71,7 @@ class GstServer(GstRtspServer.RTSPServer):
         super(GstServer, self).__init__(**properties)
         self.factory = SensorFactory()
         self.factory.set_shared(True)
-        self.set_service(self.port)
+        self.set_service(opt.port)
         self.get_mount_points().add_factory(opt.stream_uri, self.factory)
         self.attach(None)
 
