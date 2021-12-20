@@ -23,6 +23,7 @@ class SensorFactory(GstRtspServer.RTSPMediaFactory):
         self.cap = cv2.VideoCapture(opt.device_id)
         self.number_frames = 0
         self.fps = opt.fps
+        self.port = opt.port
         self.duration = 1 / self.fps * Gst.SECOND  # duration of a frame in nanoseconds
         self.launch_string = 'appsrc name=source is-live=true block=true format=GST_FORMAT_TIME ' \
                              'caps=video/x-raw,format=BGR,width={},height={},framerate={}/1 ' \
@@ -70,16 +71,18 @@ class GstServer(GstRtspServer.RTSPServer):
         super(GstServer, self).__init__(**properties)
         self.factory = SensorFactory()
         self.factory.set_shared(True)
+        self.set_service(self.port)
         self.get_mount_points().add_factory(opt.stream_uri, self.factory)
         self.attach(None)
 
 # getting the required information from the user 
 parser = argparse.ArgumentParser()
 parser.add_argument("--device_id", required=True, help="device id for the \
-                video device", type = int)
+                video device or video file location")
 parser.add_argument("--fps", required=True, help="fps of the camera", type = int)
 parser.add_argument("--image_width", required=True, help="video frame width", type = int)
 parser.add_argument("--image_height", required=True, help="video frame height", type = int)
+parser.add_argument("--port", default=8554, help="port to stream video", type = int)
 parser.add_argument("--stream_uri", default = "/video_stream", help="rtsp video stream uri")
 opt = parser.parse_args()
 

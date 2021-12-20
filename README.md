@@ -17,7 +17,7 @@ This implementation has been developed and tested on Ubuntu 16.04 and 18.04. So 
 ### Usage
 > Run stream.py with required arguments to start the rtsp server
 ##### Sample 
-    python stream.py --device_id 0 --fps 30 --image_width 640 --image_height 480 --stream_uri /video_stream
+    python stream.py --device_id 0 --fps 30 --image_width 640 --image_height 480 --port 8554 --stream_uri /video_stream
     
 ### Visualization
 
