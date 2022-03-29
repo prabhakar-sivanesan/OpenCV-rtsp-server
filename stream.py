@@ -85,6 +85,11 @@ parser.add_argument("--port", default=8554, help="port to stream video", type = 
 parser.add_argument("--stream_uri", default = "/video_stream", help="rtsp video stream uri")
 opt = parser.parse_args()
 
+try:
+    opt.device_id = int(opt.device_id)
+except ValueError:
+    pass
+
 # initializing the threads and running the stream on loop.
 GObject.threads_init()
 Gst.init(None)
