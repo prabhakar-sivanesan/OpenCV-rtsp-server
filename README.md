@@ -1,4 +1,4 @@
-# RTSP streaming using GStreamer
+# RTSP streaming using GStreamer - test
 
 Python implementation to stream camera feed from OpenCV videoCapture via RTSP server using GStreamer 1.0.
 
